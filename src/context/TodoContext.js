@@ -71,7 +71,7 @@ const TodoContextProvider = ({ children }) => {
     return (
         <todoContext.Provider value={{
             todos: state.todos,//6)новый Todos отправляем в наши компоненты Todolist
-            taskToEdit: state.taskToEdit,
+            taskToEdit: state.taskToEdit,   
             addTask,
             getTodosData,
             changeStatus,
