@@ -67,7 +67,7 @@ const TodoContextProvider = ({ children }) => {
             history.push('/')
         }
     }
-
+   
     return (
         <todoContext.Provider value={{
             todos: state.todos,//6)новый Todos отправляем в наши компоненты Todolist
