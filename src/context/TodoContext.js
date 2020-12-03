@@ -55,7 +55,7 @@ const TodoContextProvider = ({ children }) => {
         dispatch({
             type: "EDIT_TODO",
             payload: data
-        })
+        })    
     }
 
     const saveTask = async (contact, history) => {
