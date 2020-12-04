@@ -1,3 +1,18 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "name": "Ivan",
+      "surName": "Ivanov",
+      "phone": "234234",
+      "status": false,
+      "id": 1
+    },
+    {
+      "name": "test",
+      "surName": "test",
+      "phone": "test",
+      "status": false,
+      "id": 2
+    }
+  ]
 }

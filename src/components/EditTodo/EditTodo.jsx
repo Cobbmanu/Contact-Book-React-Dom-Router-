@@ -47,9 +47,27 @@ const EditTodo = (props) => {
         <div>
             {newPerson ?
                 <>
-                    <input value={newPerson.name} onChange={handleInput1} type="text" name="" id="" />
-                    <input value={newPerson.surName} onChange={handleInput2} type="text" name="" id="" />
-                    <input value={newPerson.phone} onChange={handleInput3} type="text" name="" id="" />
+                    <input 
+                    value={newPerson.name} 
+                    onChange={handleInput1} 
+                    type="text" 
+                    name="" 
+                    id="" 
+                    />
+                    <input 
+                    value={newPerson.surName} 
+                    onChange={handleInput2} 
+                    type="text" 
+                    name="" 
+                    id="" 
+                    />
+                    <input 
+                    value={newPerson.phone} 
+                    onChange={handleInput3} 
+                    type="text" 
+                    name="" 
+                    id="" 
+                    />
                     <button onClick={handleClick}>Save</button>
                 </>
                 :

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 // import {Link} from 'react-router-dom';~
 import { todoContext } from '../../context/TodoContext';
 
+
 const TodoList = () => {
     //7)вытаскиваем из компонента Todolist
     const {
@@ -10,7 +11,8 @@ const TodoList = () => {
         getTodosData, 
         changeStatus, 
         deleteTask,
-        editTodo
+        editTodo,
+        detailsTodo
     } = useContext(todoContext);//сюда импортируем actions
 
     useEffect(() => {//hook 
@@ -30,6 +32,9 @@ const TodoList = () => {
                         <button onClick={ () => deleteTask(item.id)}>Delete</button>
                     <Link to="/edit">
                         <button onClick= { () => editTodo(item.id)}>Edit</button>
+                    </Link>
+                    <Link to="/details">
+                        <button onClick= {() => detailsTodo(item.id)}>Details</button>
                     </Link>
                 </li>
             ))}

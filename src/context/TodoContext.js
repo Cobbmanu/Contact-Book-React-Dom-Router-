@@ -8,7 +8,12 @@ export const todoContext = React.createContext();
 
 const INIT_STATE = {
     todos: [],//5)новый Todos попадает сюда
-    taskToEdit: null
+    taskToEdit: null,
+    taskToDetails: {
+        name: '',
+        surName: '',
+        phone: ''
+    }
 }
 
 const reducer = (state=INIT_STATE, action) => {
@@ -17,6 +22,8 @@ const reducer = (state=INIT_STATE, action) => {
             return {...state, todos: action.payload}//и возвращает новый State, в котором заменяется todos на новую data
         case "EDIT_TODO":
             return {...state, taskToEdit: action.payload}
+        case "DETAILS_TODO":
+            return {...state, taskToDetails: action.payload}
         default: return state
     }
 }
@@ -67,17 +74,26 @@ const TodoContextProvider = ({ children }) => {
             history.push('/')
         }
     }
+    const detailsTodo = async (id) => {
+        let { data } = await axios (`http://localhost:8000/todos/${id}`)
+        dispatch({
+            type: "DETAILS_TODO",
+            payload: data
+        })
+    }
    
     return (
         <todoContext.Provider value={{
             todos: state.todos,//6)новый Todos отправляем в наши компоненты Todolist
-            taskToEdit: state.taskToEdit,   
+            taskToEdit: state.taskToEdit,
+            taskToDetails: state.taskToDetails, 
             addTask,
             getTodosData,
-            changeStatus,
+            changeStatus, 
             deleteTask,
             editTodo,
-            saveTask
+            saveTask,
+            detailsTodo
         }}>
             {children}
         </todoContext.Provider>
